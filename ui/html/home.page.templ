@@ -15,7 +15,7 @@
         {{range .Snippets}}
         <tr>
             <td>#{{.ID}}</a></td>
-            <td><a href="/snippet?id={{.ID}}">{{.Title}}</a></td>
+            <td><a href="/snippet/{{.ID}}">{{.Title}}</a></td>
             <td>{{humanDate .Created}}</a></td>
         </tr>
         {{end}}
