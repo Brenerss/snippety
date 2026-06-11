@@ -38,17 +38,6 @@ func (app *application) recoverPanic(next http.Handler) http.Handler {
 	})
 }
 
-func (app *application) requireAuthenticatedUser(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if app.authenticatedUser(r) == nil {
-			http.Redirect(w, r, "/user/login", 302)
-			return
-		}
-
-		next.ServeHTTP(w, r)
-	})
-}
-
 func noSurf(next http.Handler) http.Handler {
 	crsfHandler := nosurf.New(next)
 
@@ -59,6 +48,17 @@ func noSurf(next http.Handler) http.Handler {
 	})
 
 	return crsfHandler
+}
+
+func (app *application) requireAuthenticatedUser(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if app.authenticatedUser(r) == nil {
+			http.Redirect(w, r, "/user/login", 302)
+			return
+		}
+
+		next.ServeHTTP(w, r)
+	})
 }
 
 func (app *application) authenticate(next http.Handler) http.Handler {
