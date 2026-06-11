@@ -31,10 +31,10 @@ func (app *application) addDefaultData(td *templateData, r *http.Request) *templ
 		td = &templateData{}
 	}
 
+	td.Flash = app.session.PopString(r, "flash")
+	td.CurrentYear = time.Now().Year()
 	td.CRSFToken = nosurf.Token(r)
 	td.AuthenticatedUser = app.authenticatedUser(r)
-	td.CurrentYear = time.Now().Year()
-	td.Flash = app.session.PopString(r, "flash")
 	return td
 }
 
@@ -61,5 +61,6 @@ func (app *application) authenticatedUser(r *http.Request) *models.User {
 	if !ok {
 		return nil
 	}
+	fmt.Println("Authenticated user:", user, ok)
 	return user
 }

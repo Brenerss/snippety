@@ -16,21 +16,16 @@
     <nav>
         <div>
             <a href="/">Home</a>
+            {{if .AuthenticatedUser}}
+                <a href="/snippet/create">Create snippet</a>
+            {{end}}
         </div>
 
         {{if .AuthenticatedUser}}
-            <div>
-                <a href="/snippet/create">Create snippet</a>
-            </div>
-        {{end}}
-
-        {{if .AuthenticatedUser}}
-            <div>
+            <form action="/user/logout" method="POST">
                 <input type="hidden" name="csrf_token" value="{{.CRSFToken}}">
-                <form action="/user/logout" method="POST">
-                    <button>Logout ({{.AuthenticatedUser.Name}})</button>
-                </form>
-            </div>
+                <button>Logout ({{.AuthenticatedUser.Name}})</button>
+            </form>
         {{else}}
             <div>
                 <a href="/user/signup">Sign up</a>
