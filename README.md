@@ -11,14 +11,12 @@ A lightweight and efficient tool to store, organize, and retrieve reusable code 
 *   **Create & Store:** Easily save code snippets with titles and descriptions.
 *   **Language Tagging:** Categorize snippets by programming language.
 *   **Quick Search:** Find the exact snippet you need in seconds.
-*   **Simple UI/API:** Clean interface (or RESTful API) for managing your collection.
+*   **Simple UI/API:** Clean interface for managing your collection.
 
 ## 🛠 Technologies
 
-*(Edit this section based on your specific stack)*
-*   **Frontend:** React / Next.js / TypeScript (Example)
-*   **Backend:** Go / Laravel / Node.js (Example)
-*   **Database:** PostgreSQL / MySQL / SQLite (Example)
+*   **Backend:** Go
+*   **Database:** PostgreSQL
 
 ## ⚙️ Prerequisites
 
@@ -46,9 +44,7 @@ Before you begin, ensure you have the necessary runtime environments installed f
 
 To start the development server, run:
 ```bash
-# Example command:
-# npm run dev
-# go run main.go
+go run main.go
 ```
 
 ## 🤝 Contributing
