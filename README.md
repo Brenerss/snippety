@@ -34,10 +34,7 @@ Before you begin, ensure you have the necessary runtime environments installed f
    ```
 3. Install dependencies:
    ```bash
-   # Use the appropriate command for your stack:
-   # npm install
-   # go mod tidy
-   # composer install
+   go mod tidy
    ```
 
 ## 🏃‍♂️ Running the Application
